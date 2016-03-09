@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="recycler_view_horizontal_space">7dp</dimen>
     <dimen name="recycler_view_vertical_space">10dp</dimen>
     <dimen name="full_width_image_height">180dp</dimen>
     <dimen name="horizontal_scroll_height">180dp</dimen>

@@ -1,6 +1,7 @@
 package com.experiment.dashboardmock.controllers.holders;
 
 import android.content.Intent;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -26,6 +27,16 @@ public class HorizontalScrollHolder extends BaseHolder {
         headerLabel = (TextView) view.findViewById(R.id.horizontal_scroll_header);
         recyclerView = (ClickFlowRecyclerView) view.findViewById(R.id.horizontal_recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL, false));
+
+        final int horizontalSpace = (int) recyclerView.getResources().getDimension(R.dimen.recycler_view_horizontal_space);
+        recyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                if (parent.getChildAdapterPosition(view) != parent.getAdapter().getItemCount() - 1) {
+                    outRect.right = horizontalSpace;
+                }
+            }
+        });
     }
 
     @Override
