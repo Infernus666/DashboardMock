@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="full_width_image_height">180dp</dimen>
+    <dimen name="horizontal_scroll_child_height">180dp</dimen>
+    <dimen name="horizontal_scroll_child_width">135dp</dimen>
 </resources>
