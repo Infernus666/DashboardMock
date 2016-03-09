@@ -3,6 +3,8 @@ package com.experiment.dashboardmock.controllers;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.view.View;
 
 import com.experiment.dashboardmock.R;
 import com.experiment.dashboardmock.model.Element;
@@ -18,6 +20,8 @@ import java.util.ArrayList;
  * Created by Infernus on 07/03/16.
  */
 public class DashboardActivity extends Activity {
+
+    private ClickFlowRecyclerView dashboardRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +50,20 @@ public class DashboardActivity extends Activity {
     }
 
     private void setUpRecyclerView(final ArrayList<Element> elements) {
-        // TODO: set up the recycler view here to use Elements data
+        dashboardRecyclerView = (ClickFlowRecyclerView) findViewById(R.id.dashboar_recyclerview);
+        dashboardRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+
+        dashboardRecyclerView.setOnItemClickListener(new ClickFlowRecyclerView.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                // Item Clicks can be handled here
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+
+            }
+        });
     }
 
     private ArrayList<Element> loadDataFromAssets() {
