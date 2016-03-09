@@ -3,6 +3,7 @@ package com.experiment.dashboardmock.controllers.holders;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
@@ -12,6 +13,7 @@ import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.experiment.dashboardmock.R;
 import com.experiment.dashboardmock.model.Element;
 import com.experiment.dashboardmock.model.Item;
+import com.experiment.dashboardmock.utils.DimensionStore;
 
 /**
  * Created by Infernus on 08/03/16.
@@ -22,6 +24,13 @@ public class SlideShowHolder extends BaseHolder {
     public SlideShowHolder(View itemView) {
         super(itemView);
         slider = (SliderLayout) itemView.findViewById(R.id.slide_show_view);
+
+        // Setting height of banner image view to be half of screen width
+        // This is assuming that this image is going to be of 3:2 aspect
+        // ratio.
+        ViewGroup.LayoutParams params = slider.getLayoutParams();
+        params.height = (int) ((float) DimensionStore.getScreenDimension().getWidth() *  2.0f/3.0f);
+        slider.setLayoutParams(params);
     }
 
     @Override

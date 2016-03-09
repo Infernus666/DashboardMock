@@ -5,5 +5,4 @@
     <dimen name="horizontal_scroll_height">180dp</dimen>
     <dimen name="horizontal_scroll_child_height">180dp</dimen>
     <dimen name="horizontal_scroll_child_width">135dp</dimen>
-    <dimen name="slide_show_height">240dp</dimen>
 </resources>
