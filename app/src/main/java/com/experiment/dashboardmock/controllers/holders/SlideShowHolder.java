@@ -25,7 +25,7 @@ public class SlideShowHolder extends BaseHolder {
         super(itemView);
         slider = (SliderLayout) itemView.findViewById(R.id.slide_show_view);
 
-        // Setting height of banner image view to be half of screen width
+        // Setting height of slideshow view to 2/3rd of screen width.
         // This is assuming that this image is going to be of 3:2 aspect
         // ratio.
         ViewGroup.LayoutParams params = slider.getLayoutParams();
