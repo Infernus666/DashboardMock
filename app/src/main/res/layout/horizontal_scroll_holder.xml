@@ -14,7 +14,7 @@
         android:textSize="14dp"
         />
 
-    <com.experiment.dashboarddemo.controllers.ClickFlowRecyclerView
+    <com.experiment.dashboardmock.controllers.ClickFlowRecyclerView
         android:id="@+id/horizontal_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="@dimen/horizontal_scroll_height"

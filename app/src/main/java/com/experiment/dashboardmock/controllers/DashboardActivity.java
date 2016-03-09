@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
 import com.experiment.dashboardmock.R;
+import com.experiment.dashboardmock.controllers.adapters.DashboardRecyclerAdapter;
 import com.experiment.dashboardmock.model.Element;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -52,6 +53,7 @@ public class DashboardActivity extends Activity {
     private void setUpRecyclerView(final ArrayList<Element> elements) {
         dashboardRecyclerView = (ClickFlowRecyclerView) findViewById(R.id.dashboar_recyclerview);
         dashboardRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        dashboardRecyclerView.setAdapter(new DashboardRecyclerAdapter(elements));
 
         dashboardRecyclerView.setOnItemClickListener(new ClickFlowRecyclerView.OnItemClickListener() {
             @Override
