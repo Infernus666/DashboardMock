@@ -1,9 +1,11 @@
 package com.experiment.dashboardmock.controllers;
 
 import android.app.Activity;
+import android.graphics.Rect;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.experiment.dashboardmock.R;
@@ -64,6 +66,17 @@ public class DashboardActivity extends Activity {
             @Override
             public void onItemLongClick(View view, int position) {
 
+            }
+        });
+
+        final int verticalSpace = (int) getResources().getDimension(R.dimen.recycler_view_vertical_space);
+
+        dashboardRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                if (parent.getChildAdapterPosition(view) != parent.getAdapter().getItemCount() - 1) {
+                    outRect.bottom = verticalSpace;
+                }
             }
         });
     }
