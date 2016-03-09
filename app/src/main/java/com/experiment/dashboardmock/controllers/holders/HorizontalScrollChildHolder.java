@@ -1,6 +1,9 @@
 package com.experiment.dashboardmock.controllers.holders;
 
 import android.support.v7.widget.RecyclerView;
+import android.text.Spannable;
+import android.text.Spanned;
+import android.text.style.StrikethroughSpan;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -36,5 +39,14 @@ public class HorizontalScrollChildHolder extends RecyclerView.ViewHolder {
         Picasso.with(imageView.getContext()).load(item.getImageUrl()).into(imageView);
 
         nameLabel.setText(item.getLabel());
+
+        // Considering that original price will be dynamic over items, the strike-through
+        // should refresh with change in text. For the current hard-coded text, the following
+        // code could have been in constructor only.
+        String originalPrice = "Rs xxxx";
+        originalPriceLabel.setText(originalPrice, TextView.BufferType.SPANNABLE);
+        StrikethroughSpan strikethroughSpan = new StrikethroughSpan();
+        Spannable spannable = (Spannable) originalPriceLabel.getText();
+        spannable.setSpan(strikethroughSpan, 0, originalPrice.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
     }
 }
