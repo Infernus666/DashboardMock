@@ -1,16 +1,20 @@
 package com.experiment.dashboardmock.controllers;
 
 import android.app.Activity;
+import android.graphics.Point;
 import android.graphics.Rect;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Display;
 import android.view.View;
 
 import com.experiment.dashboardmock.R;
 import com.experiment.dashboardmock.controllers.adapters.DashboardRecyclerAdapter;
 import com.experiment.dashboardmock.model.Element;
+import com.experiment.dashboardmock.utils.Dimension;
+import com.experiment.dashboardmock.utils.DimensionStore;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -31,7 +35,16 @@ public class DashboardActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard_layout);
 
+        measureScreen();
+
         new LoadDataAsyncTask().execute();
+    }
+
+    private void measureScreen() {
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        DimensionStore.setScreenDimension(new Dimension(size.x, size.y));
     }
 
     // Load json data from a json file in assets. Then deserialize
